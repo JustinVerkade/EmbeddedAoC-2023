@@ -1,4 +1,4 @@
-"./Core/Src/drivers/SdCard.o"
+"./Core/Src/drivers/f_debug.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f7xx_hal_msp.o"
 "./Core/Src/stm32f7xx_it.o"

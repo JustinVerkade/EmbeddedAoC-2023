@@ -5,13 +5,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/drivers/SdCard.c 
+../Core/Src/drivers/f_debug.c 
 
 OBJS += \
-./Core/Src/drivers/SdCard.o 
+./Core/Src/drivers/f_debug.o 
 
 C_DEPS += \
-./Core/Src/drivers/SdCard.d 
+./Core/Src/drivers/f_debug.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +21,7 @@ Core/Src/drivers/%.o Core/Src/drivers/%.su Core/Src/drivers/%.cyclo: ../Core/Src
 clean: clean-Core-2f-Src-2f-drivers
 
 clean-Core-2f-Src-2f-drivers:
-	-$(RM) ./Core/Src/drivers/SdCard.cyclo ./Core/Src/drivers/SdCard.d ./Core/Src/drivers/SdCard.o ./Core/Src/drivers/SdCard.su
+	-$(RM) ./Core/Src/drivers/f_debug.cyclo ./Core/Src/drivers/f_debug.d ./Core/Src/drivers/f_debug.o ./Core/Src/drivers/f_debug.su
 
 .PHONY: clean-Core-2f-Src-2f-drivers
 

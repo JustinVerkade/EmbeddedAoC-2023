@@ -28,6 +28,8 @@
 #include "string.h"
 #include "stm32f7xx_ll_fmc.h"
 #include "math.h"
+
+#include "Drivers/f_debug.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,20 +90,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *AdcHandle)
 {
 	adc_ready = 1;
 	memcpy(adc_buffer, adc_dma_buffer, 2 * sizeof(uint32_t));
-}
-
-static void f_logResult(uint8_t fr)
-{
-	if(fr == FR_DISK_ERR) CDC_Transmit_HS((uint8_t*)"e: FR_DISK_ERR!\n", strlen("e: FR_DISK_ERR!\n"));
-	if(fr == FR_INT_ERR) CDC_Transmit_HS((uint8_t*)"e: FR_INT_ERR!\n", strlen("e: FR_INT_ERR!\n"));
-	if(fr == FR_NOT_READY) CDC_Transmit_HS((uint8_t*)"e: FR_NOT_READY!\n", strlen("e: FR_NOT_READY!\n"));
-	if(fr == FR_NO_FILE) CDC_Transmit_HS((uint8_t*)"e: FR_NO_FILE!\n", strlen("e: FR_NO_FILE!\n"));
-	if(fr == FR_NO_PATH) CDC_Transmit_HS((uint8_t*)"e: FR_NO_PATH!\n", strlen("e: FR_NO_PATH!\n"));
-	if(fr == FR_INVALID_NAME) CDC_Transmit_HS((uint8_t*)"e: FR_INVALID_NAME!\n", strlen("e: FR_INVALID_NAME!\n"));
-	if(fr == FR_INVALID_DRIVE) CDC_Transmit_HS((uint8_t*)"e: FR_INVALID_DRIVE!\n", strlen("e: FR_INVALID_DRIVE!\n"));
-	if(fr == FR_NOT_ENABLED) CDC_Transmit_HS((uint8_t*)"e: FR_NOT_ENABLED!\n", strlen("e: FR_NOT_ENABLED!\n"));
-	if(fr == FR_NO_FILESYSTEM) CDC_Transmit_HS((uint8_t*)"e: FR_NO_FILESYSTEM!\n", strlen("e: FR_NO_FILESYSTEM!\n"));
-
 }
 
 /* USER CODE END 0 */
@@ -181,49 +169,12 @@ int main(void)
 
 	// INIT SD
 
-	//	FIL file;
-	//	FATFS fs;
-	//	UINT bw;
-	//	FRESULT fr;
-
-	//	// write disk
-	//	fr = f_mount(&fs, (TCHAR const*)SDPath, 0);
-	//	f_logResult(fr);
-	//
-	//	HAL_Delay(200);
-	//
-	//	fr = f_open(&file, "data.txt", FA_WRITE | FA_CREATE_ALWAYS);
-	//	f_logResult(fr);
-	//
-	//	HAL_Delay(200);
-	//
-	//	fr = f_write(&file, "hello world\n", strlen("hello world\n"), &bw);
-	//	fr = f_close(&file);
-	//
-	//	// read disk
-	//	char buffer[256];
-	//	fr = f_open(&file, "data.txt", FA_READ);
-	//	f_gets(buffer, 256, &file);
-	//	fr = f_close(&file);
-	//
-	//	CDC_Transmit_HS((uint8_t*)buffer, strlen(buffer));
-
-	HAL_ADC_Start_DMA(&hadc1, adc_dma_buffer, 2);
-
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
-		int16_t axis_x = (int16_t)adc_buffer[0] - 2048;
-		int16_t axis_y = (int16_t)adc_buffer[1] - 2048;
-		uint8_t buffer[4];
-		memcpy(buffer, &axis_x, 2);
-		memcpy(buffer + 2, &axis_y, 2);
-		CDC_Transmit_HS(buffer, 4);
-
-		HAL_Delay(1000 / 200);
 
 		/* USER CODE END WHILE */
 		MX_USB_HOST_Process();
