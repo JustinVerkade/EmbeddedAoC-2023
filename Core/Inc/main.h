@@ -36,7 +36,28 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+typedef enum SystemError_t SystemError_t;
+enum SystemError_t
+{
+	SYS_ERROR_SRAM_FAIL,
+	SYS_ERROR_SDIO_FAIL,
+	SYS_ERROR_WIFI_FAIL,
+};
 
+typedef struct System_t System_t;
+struct System_t
+{
+	// virtual comport status
+	uint8_t vcom_open;
+
+	// hardware functionality states
+	uint8_t sram_working;
+	uint8_t sdio_working;
+	uint8_t wifi_working;
+
+	// error state
+	SystemError_t error;
+};
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

@@ -39,6 +39,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define SRAM_ADDRESS ((uint32_t*)0x60000000ul)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -63,6 +64,14 @@ SRAM_HandleTypeDef hsram1;
 
 /* USER CODE BEGIN PV */
 
+// system state management
+System_t system_state;
+
+// sdio management
+FIL loaded_file;
+FATFS file_system;
+FRESULT file_result;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -78,7 +87,7 @@ static void MX_FMC_Init(void);
 void MX_USB_HOST_Process(void);
 
 /* USER CODE BEGIN PFP */
-
+static void MX_SystemStartup(System_t *state);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -134,38 +143,35 @@ int main(void)
 	MX_FMC_Init();
 	/* USER CODE BEGIN 2 */
 
+	// hardware state test
+	MX_SystemStartup(&system_state);
+
+	// required system functions
+	// check psram
+	if(!system_state.sram_working)
+	{
+		system_state.error = SYS_ERROR_SRAM_FAIL;
+		Error_Handler();
+	}
+
+	// check sdio
+	if(!system_state.sdio_working)
+	{
+		system_state.error = SYS_ERROR_SDIO_FAIL;
+		Error_Handler();
+	}
+
+	// check wifi
+	//	if(!system_state.wifi_working)
+	//	{
+	//		system_state.error = SYS_ERROR_WIFI_FAIL;
+	//		Error_Handler();
+	//	}
+
 	HAL_Delay(1000);
 
-	//	// test
-	//	uint32_t *ptr = (uint32_t*)0x60000000ul;
-	//	CDC_Transmit_HS((uint8_t*)"Writing memory\n", strlen("Writing memory\n"));
-	//
-	//	uint32_t start_write = HAL_GetTick();
-	//	for(uint32_t byte=0; byte<8388608ul; byte++)
-	//	{
-	//		*(ptr + byte) = 0xFFFF & (byte >> 4);
-	//	}
-	//	uint32_t stop_write = HAL_GetTick();
-	//
-	//	CDC_Transmit_HS((uint8_t*)"Reading memory\n", strlen("Reading memory\n"));
-	//
-	//	uint32_t start_read = HAL_GetTick();
-	//	for(uint32_t byte=0; byte<8388608ul; byte++)
-	//	{
-	//		if(*(ptr + byte) != 0xFFFF & (byte >> 4))
-	//		{
-	//			CDC_Transmit_HS((uint8_t*)"Reading failed\n", strlen("Reading failed\n"));
-	//			Error_Handler();
-	//		}
-	//	}
-	//	uint32_t stop_read = HAL_GetTick();
-	//
-	//	char buffer[256];
-	//	sprintf(buffer, "Write: %lu kB/sec\n", 8388608ul / (stop_write - start_write));
-	//	CDC_Transmit_HS((uint8_t*)buffer, strlen(buffer));
-	//	HAL_Delay(10);
-	//	sprintf(buffer, "Read: %lu kB/sec\n", 8388608ul / (stop_read - start_read));
-	//	CDC_Transmit_HS((uint8_t*)buffer, strlen(buffer));
+	// test
+
 
 	// INIT SD
 
@@ -648,7 +654,30 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void MX_SystemStartup(System_t *state)
+{
+	// init states
+	state->sram_working = 1;
+	state->sdio_working = 1;
+	state->wifi_working = 1;
 
+	// test psram
+	uint32_t *ptr = SRAM_ADDRESS + 1000000ul;
+	for(uint32_t byte=0; byte<1000000ul; byte++)
+		*(ptr + byte) = 0xFFFF & (byte >> 4);
+	for(uint32_t byte=0; byte<1000000ul; byte++)
+		if(*(ptr + byte) != (0xFFFF & (byte >> 4)))
+			state->sram_working = 0;
+
+	// test sdio
+	file_result = f_mount(&file_system, (const TCHAR*)SDPath, 1);
+	if(file_result != FR_OK)
+		state->sdio_working = 0;
+
+	// test wifi
+	// todo add wifi check
+
+}
 /* USER CODE END 4 */
 
 /**
@@ -659,15 +688,42 @@ void Error_Handler(void)
 {
 	/* USER CODE BEGIN Error_Handler_Debug */
 	/* User can add his own implementation to report the HAL error return state */
-	//__disable_irq();
+	__disable_irq();
+
+	// reset pins
+	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+
+	// blink error code
 	while (1)
 	{
-		HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-		HAL_Delay(100);
-		HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-		HAL_Delay(100);
-		HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
-		HAL_Delay(100);
+		switch(system_state.error)
+		{
+		case SYS_ERROR_SRAM_FAIL:
+			HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+			//	HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+			//	HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+			break;
+
+		case SYS_ERROR_SDIO_FAIL:
+			//	HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+			HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+			//	HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+			break;
+
+		case SYS_ERROR_WIFI_FAIL:
+			HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+			HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+			//	HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+			break;
+
+		default:
+			break;
+		}
+
+		// loop delay
+		for(volatile uint32_t t=0; t<2000000; t++);
 	}
 	/* USER CODE END Error_Handler_Debug */
 }
