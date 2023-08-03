@@ -30,6 +30,7 @@
 #include "math.h"
 
 #include "Drivers/f_debug.h"
+#include "system/System.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,7 +40,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define SRAM_ADDRESS ((uint32_t*)0x60000000ul)
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,11 +68,6 @@ SRAM_HandleTypeDef hsram1;
 // system state management
 System_t system_state;
 
-// sdio management
-FIL loaded_file;
-FATFS file_system;
-FRESULT file_result;
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,7 +83,6 @@ static void MX_FMC_Init(void);
 void MX_USB_HOST_Process(void);
 
 /* USER CODE BEGIN PFP */
-static void MX_SystemStartup(System_t *state);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -143,35 +138,19 @@ int main(void)
 	MX_FMC_Init();
 	/* USER CODE BEGIN 2 */
 
-	// hardware state test
-	MX_SystemStartup(&system_state);
+	HAL_Delay(1000);
 
-	// required system functions
-	// check psram
-	if(!system_state.sram_working)
-	{
-		system_state.error = SYS_ERROR_SRAM_FAIL;
-		Error_Handler();
-	}
+	// system startup
+	System_init(&system_state);
 
-	// check sdio
-	if(!system_state.sdio_working)
-	{
-		system_state.error = SYS_ERROR_SDIO_FAIL;
-		Error_Handler();
-	}
+	// system state log
+	System_initLog(&system_state);
+	System_selfTestLog(&system_state);
 
-	// check wifi
-	//	if(!system_state.wifi_working)
-	//	{
-	//		system_state.error = SYS_ERROR_WIFI_FAIL;
-	//		Error_Handler();
-	//	}
 
 	HAL_Delay(1000);
 
 	// test
-
 
 	// INIT SD
 
@@ -654,30 +633,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-static void MX_SystemStartup(System_t *state)
-{
-	// init states
-	state->sram_working = 1;
-	state->sdio_working = 1;
-	state->wifi_working = 1;
 
-	// test psram
-	uint32_t *ptr = SRAM_ADDRESS + 1000000ul;
-	for(uint32_t byte=0; byte<1000000ul; byte++)
-		*(ptr + byte) = 0xFFFF & (byte >> 4);
-	for(uint32_t byte=0; byte<1000000ul; byte++)
-		if(*(ptr + byte) != (0xFFFF & (byte >> 4)))
-			state->sram_working = 0;
-
-	// test sdio
-	file_result = f_mount(&file_system, (const TCHAR*)SDPath, 1);
-	if(file_result != FR_OK)
-		state->sdio_working = 0;
-
-	// test wifi
-	// todo add wifi check
-
-}
 /* USER CODE END 4 */
 
 /**

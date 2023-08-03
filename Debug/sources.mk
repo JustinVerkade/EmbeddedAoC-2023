@@ -24,6 +24,7 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src/drivers \
 Core/Src \
+Core/Src/system \
 Core/Startup \
 Drivers/STM32F7xx_HAL_Driver/Src \
 FATFS/App \
