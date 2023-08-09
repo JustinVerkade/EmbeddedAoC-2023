@@ -1,6 +1,6 @@
 # FOX-PDA-v1<br />
 STM32F7 developement board<br />
-![Alt text](relative%20board.jpg?raw=true "EmbeddedAoC")<br />
+![Alt text](https://github.com/JustinVerkade/EmbeddedAoC-2023/blob/8d7cd2562cda0d604a7bd38779a287bdb10c7df2/board.jpg?raw=true "EmbeddedAoC")<br />
 
 ## Completed<br />
 -> f_debug function to log FatFs problems to vcom interface.<br />
