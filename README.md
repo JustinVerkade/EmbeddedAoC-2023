@@ -1,5 +1,4 @@
-# FOX-PDA-v1<br />
-Embedded-AoC "Yuki"<br />
+# Embedded-AoC "Yuki"<br />
 ![Alt text](https://github.com/JustinVerkade/EmbeddedAoC-2023/blob/8d7cd2562cda0d604a7bd38779a287bdb10c7df2/board.jpg?raw=true "EmbeddedAoC")<br />
 
 ## Completed<br />
