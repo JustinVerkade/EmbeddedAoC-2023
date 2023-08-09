@@ -5,7 +5,7 @@
  *      Author: J.Verkade
  */
 
-#include "system/System.h"
+#include "System/system.h"
 #include "usbd_cdc_if.h"
 
 extern USBD_HandleTypeDef hUsbDeviceHS;

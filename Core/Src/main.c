@@ -29,8 +29,11 @@
 #include "stm32f7xx_ll_fmc.h"
 #include "math.h"
 
-#include "Drivers/f_debug.h"
-#include "system/System.h"
+#include "Ffunctions/f_debug.h"
+#include "System/System.h"
+
+#include "AoC/AdventOfCode.h"
+#include "AoC/AdventOfCode_Includes.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,6 +70,8 @@ SRAM_HandleTypeDef hsram1;
 
 // system state management
 System_t system_state;
+
+AdventOfCode_t aoc;
 
 /* USER CODE END PV */
 
@@ -138,21 +143,26 @@ int main(void)
 	MX_FMC_Init();
 	/* USER CODE BEGIN 2 */
 
-	HAL_Delay(1000);
-
 	// system startup
 	System_init(&system_state);
 
-	// system state log
+	// system init terminal log
 	System_initLog(&system_state);
 	System_selfTestLog(&system_state);
 
+	// advent of code init
+	AdventOfCode_init(&aoc,
+			AoC_Day_01, AoC_Day_02, AoC_Day_03, AoC_Day_04, AoC_Day_05,
+			AoC_Day_06, AoC_Day_07, AoC_Day_08, AoC_Day_09, AoC_Day_10,
+			AoC_Day_11, AoC_Day_12, AoC_Day_13, AoC_Day_14, AoC_Day_15,
+			AoC_Day_16, AoC_Day_17, AoC_Day_18, AoC_Day_19, AoC_Day_20,
+			AoC_Day_21, AoC_Day_22, AoC_Day_23, AoC_Day_24, AoC_Day_25);
 
-	HAL_Delay(1000);
+	// check implementation status
+	AdventOfCode_checkImplementedDays(&aoc);
 
-	// test
-
-	// INIT SD
+	// execute AoC
+	AdventOfCode_executeImplementations(&aoc);
 
 	/* USER CODE END 2 */
 

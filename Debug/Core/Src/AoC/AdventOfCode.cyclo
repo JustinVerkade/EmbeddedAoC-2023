@@ -1,0 +1,4 @@
+AdventOfCode.c:11:6:AdventOfCode_init	1
+AdventOfCode.c:66:6:AdventOfCode_checkImplementedDays	3
+AdventOfCode.c:86:6:AdventOfCode_executeImplementations	4
+AdventOfCode.c:138:6:AdventOfCode_print	2

@@ -5,6 +5,7 @@ STM32F7 developement board<br />
 -> f_debug function to log FatFs problems to vcom interface.<br />
 -> Added system check for SD card.<br />
 -> Added system check for SRAM memory.<br />
+-> Added system structure for executing AoC puzzles.<br />
 
 ## todo<br />
 -> Add usb layer as calling the transmit function fails when bizzy without feedback.<br />

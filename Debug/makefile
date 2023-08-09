@@ -23,8 +23,10 @@ RM := rm -rf
 -include FATFS/App/subdir.mk
 -include Drivers/STM32F7xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
--include Core/Src/system/subdir.mk
--include Core/Src/drivers/subdir.mk
+-include Core/Src/System/subdir.mk
+-include Core/Src/Ffunctions/subdir.mk
+-include Core/Src/AoC/Days/subdir.mk
+-include Core/Src/AoC/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 
