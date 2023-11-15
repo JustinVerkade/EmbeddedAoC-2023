@@ -8,7 +8,11 @@
 #ifndef SRC_AOC_ADVENTOFCODE_H_
 #define SRC_AOC_ADVENTOFCODE_H_
 
+#include "fatfs.h"
+#include "stdint.h"
+#include "string.h"
 #include "main.h"
+#include "stdio.h"
 
 typedef enum AdventOfCode_config_t AdventOfCode_config_t;
 enum AdventOfCode_config_t
@@ -63,6 +67,6 @@ void AdventOfCode_init(AdventOfCode_t *aoc,
 
 void AdventOfCode_checkImplementedDays(AdventOfCode_t *aoc);
 void AdventOfCode_executeImplementations(AdventOfCode_t *aoc);
-void AdventOfCode_print(char *text, int len);
+void AdventOfCode_print(AdventOfCode_config_t config, char *text, int len);
 
 #endif /* SRC_AOC_ADVENTOFCODE_H_ */

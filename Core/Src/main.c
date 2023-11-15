@@ -43,7 +43,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define USB_COMMAND_CHECK		('c')
+#define USB_COMMAND_DEBUG		('d')
+#define USB_COMMAND_RELEASE		('r')
+#define USB_COMMAND_UPLOAD		('u')
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -71,6 +74,10 @@ SRAM_HandleTypeDef hsram1;
 // system state management
 System_t system_state;
 
+uint8_t usb_rx_buffer[1024];
+uint16_t usb_rx_length;
+uint8_t usb_rx_ready;
+
 AdventOfCode_t aoc;
 
 /* USER CODE END PV */
@@ -92,13 +99,220 @@ void MX_USB_HOST_Process(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t adc_ready = 0;
-uint32_t adc_buffer[2];
-uint32_t adc_dma_buffer[2];
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *AdcHandle)
+
+void checkImplementation()
 {
-	adc_ready = 1;
-	memcpy(adc_buffer, adc_dma_buffer, 2 * sizeof(uint32_t));
+	// fetch variable
+	uint8_t *ptr;
+	for(ptr=usb_rx_buffer; *ptr!=' '&&ptr<(usb_rx_buffer+1024); ptr++);
+	ptr++;
+
+	// no value given
+	if(*ptr == '\0')
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "No day number given!\n", strlen("No day number given!\n"));
+		return;
+	}
+
+	// check value
+	int32_t day = atoi((char*)ptr);
+	if(day > 25 || day <= 0)
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "Invalid day number given!\n", strlen("Invalid day number given!\n"));
+		return;
+	}
+
+	// check implementation
+	char buffer[1024];
+	sprintf(buffer, "Checking day %ld\n", day);
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
+
+	// check day
+	AdventOfCode_return_t ret = aoc.aoc_func_list[day - 1](AOC_CONFIG_TEST);
+	if(ret == AOC_RETURN_OK)
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tState: Implemented\n", strlen("\tState: Implemented\n"));
+	else AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tState: Not implemented\n", strlen("\tState: Not implemented\n"));
+
+	// check debug file
+	FILINFO fno;
+	sprintf(buffer, "day%ldt.txt", day);
+	if(f_stat(buffer, &fno) == FR_OK)
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tDebug: Present\n", strlen("\tDebug: Present\n"));
+	else AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tDebug: Absent\n", strlen("\tDebug: Absent\n"));
+
+	// check release file
+	sprintf(buffer, "day%ld.txt", day);
+	if(f_stat(buffer, &fno) == FR_OK)
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tRelease: Present\n", strlen("\tRelease: Present\n"));
+	else AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tRelease: Absent\n", strlen("\tRelease: Absent\n"));
+}
+
+void runDebugImplementation()
+{
+	// fetch variable
+	uint8_t *ptr;
+	for(ptr=usb_rx_buffer; *ptr!=' '&&ptr<(usb_rx_buffer+1024); ptr++);
+	ptr++;
+
+	// no value given
+	if(*ptr == '\0')
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "No day number given!\n", strlen("No day number given!\n"));
+		return;
+	}
+
+	// check value
+	int32_t day = atoi((char*)ptr);
+	if(day > 25 || day <= 0)
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "Invalid day number given!\n", strlen("Invalid day number given!\n"));
+		return;
+	}
+
+	// check implementation
+	char buffer[1024];
+	sprintf(buffer, "Executing debug day %ld\n", day);
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
+
+	// check implementationday
+	AdventOfCode_return_t ret = aoc.aoc_func_list[day - 1](AOC_CONFIG_TEST);
+	if(ret != AOC_RETURN_OK)
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tState: Not implemented\n", strlen("\tState: Not implemented\n"));
+		return;
+	}
+
+	// check debug file
+	FILINFO fno;
+	sprintf(buffer, "day%ldt.txt", day);
+	if(f_stat(buffer, &fno) != FR_OK)
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tDebug: Absent\n", strlen("\tDebug: Absent\n"));
+		return;
+	}
+
+	// split line
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "Start:\n", strlen("Start:\n"));
+
+	// execute debug mode day
+	uint32_t start = HAL_GetTick();
+	AdventOfCode_return_t dret = aoc.aoc_func_list[day - 1](AOC_CONFIG_DEBUG_VERBOSE);
+	uint32_t end = HAL_GetTick();
+	if(dret == AOC_RETURN_OK)
+	{
+		sprintf(buffer, "Succesfull: %ld ms\n", end - start);
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
+	}
+	else
+	{
+		sprintf(buffer, "Failed: %ld ms\n", end - start);
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
+	}
+}
+
+void runReleaseImplementation()
+{
+	// fetch variable
+	uint8_t *ptr;
+	for(ptr=usb_rx_buffer; *ptr!=' '&&ptr<(usb_rx_buffer+1024); ptr++);
+	ptr++;
+
+	// no value given
+	if(*ptr == '\0')
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "No day number given!\n", strlen("No day number given!\n"));
+		return;
+	}
+
+	// check value
+	int32_t day = atoi((char*)ptr);
+	if(day > 25 || day <= 0)
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "Invalid day number given!\n", strlen("Invalid day number given!\n"));
+		return;
+	}
+
+	// check implementation
+	char buffer[1024];
+	sprintf(buffer, "Executing release day %ld\n", day);
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
+
+	// check implementationday
+	AdventOfCode_return_t ret = aoc.aoc_func_list[day - 1](AOC_CONFIG_TEST);
+	if(ret != AOC_RETURN_OK)
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tState: Not implemented\n", strlen("\tState: Not implemented\n"));
+		return;
+	}
+
+	// check debug file
+	FILINFO fno;
+	sprintf(buffer, "day%ld.txt", day);
+	if(f_stat(buffer, &fno) != FR_OK)
+	{
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\tRelease: Absent\n", strlen("\tRelease: Absent\n"));
+		return;
+	}
+
+
+	// split line
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "Start:\n", strlen("Start:\n"));
+
+	// execute debug mode day
+	uint32_t start = HAL_GetTick();
+	AdventOfCode_return_t dret = aoc.aoc_func_list[day - 1](AOC_CONFIG_RELEASE_VERBOSE);
+	uint32_t end = HAL_GetTick();
+	if(dret == AOC_RETURN_OK)
+	{
+		sprintf(buffer, "Succesfull: %ld ms\n", end - start);
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
+	}
+	else
+	{
+		sprintf(buffer, "Failed: %ld ms\n", end - start);
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
+	}
+}
+
+void USBD_HandleCommands()
+{
+	// check if message is valid
+	if(!usb_rx_ready)
+		return;
+
+	// echo message
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, (char*)usb_rx_buffer, strlen((char*)usb_rx_buffer));
+
+	// process command
+	switch(usb_rx_buffer[0])
+	{
+	case USB_COMMAND_CHECK:
+		checkImplementation();
+		break;
+
+	case USB_COMMAND_DEBUG:
+		runDebugImplementation();
+		break;
+
+	case USB_COMMAND_RELEASE:
+		runReleaseImplementation();
+		break;
+
+	case USB_COMMAND_UPLOAD:
+		break;
+
+
+
+	default:
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "Unkown command!\n", strlen("Unkown command!\n"));
+		break;
+	}
+
+	// print new cursor
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, ">", 1);
+
+	// clear receive flag
+	usb_rx_ready = 0;
 }
 
 /* USER CODE END 0 */
@@ -150,19 +364,16 @@ int main(void)
 	System_initLog(&system_state);
 	System_selfTestLog(&system_state);
 
-	// advent of code init
+	// init AOC
 	AdventOfCode_init(&aoc,
-			AoC_Day_01, AoC_Day_02, AoC_Day_03, AoC_Day_04, AoC_Day_05,
-			AoC_Day_06, AoC_Day_07, AoC_Day_08, AoC_Day_09, AoC_Day_10,
-			AoC_Day_11, AoC_Day_12, AoC_Day_13, AoC_Day_14, AoC_Day_15,
-			AoC_Day_16, AoC_Day_17, AoC_Day_18, AoC_Day_19, AoC_Day_20,
-			AoC_Day_21, AoC_Day_22, AoC_Day_23, AoC_Day_24, AoC_Day_25);
+			AoC_Day_01,	AoC_Day_02,	AoC_Day_03,	AoC_Day_04,	AoC_Day_05,
+			AoC_Day_06,	AoC_Day_07,	AoC_Day_08,	AoC_Day_09,	AoC_Day_10,
+			AoC_Day_11,	AoC_Day_12,	AoC_Day_13,	AoC_Day_14,	AoC_Day_15,
+			AoC_Day_16,	AoC_Day_17,	AoC_Day_18,	AoC_Day_19,	AoC_Day_20,
+			AoC_Day_21,	AoC_Day_22,	AoC_Day_23,	AoC_Day_24,	AoC_Day_25);
 
-	// check implementation status
-	AdventOfCode_checkImplementedDays(&aoc);
-
-	// execute AoC
-	AdventOfCode_executeImplementations(&aoc);
+	extern USBD_HandleTypeDef hUsbDeviceHS;
+	USBD_Start(&hUsbDeviceHS);
 
 	/* USER CODE END 2 */
 
@@ -170,6 +381,7 @@ int main(void)
 	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
+		USBD_HandleCommands();
 
 		/* USER CODE END WHILE */
 		MX_USB_HOST_Process();

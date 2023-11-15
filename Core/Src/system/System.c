@@ -47,7 +47,7 @@ void System_selfTest(System_t *state)
 // interface log functions
 void System_initLog(System_t *state)
 {
-	char *logo = "________________________________________________________________________________\n"
+	char *logo = "\n________________________________________________________________________________\n"
 			"\n"
 			"  ____________        __________      _______        _______\n"
 			" |            |      /          \\     \\      \\      /      /\n"
@@ -102,4 +102,8 @@ void System_selfTestLog(System_t *state)
 
 	while(((USBD_CDC_HandleTypeDef*)hUsbDeviceHS.pClassData)->TxState != 0);
 	CDC_Transmit_HS((uint8_t*)text_buffer, strlen(text_buffer));
+
+	// print new cursor
+	while(((USBD_CDC_HandleTypeDef*)hUsbDeviceHS.pClassData)->TxState != 0);
+	CDC_Transmit_HS((uint8_t*)">", 1);
 }

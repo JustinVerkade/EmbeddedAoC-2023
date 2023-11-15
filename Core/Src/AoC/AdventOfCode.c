@@ -66,7 +66,7 @@ extern USBD_HandleTypeDef hUsbDeviceHS;
 void AdventOfCode_checkImplementedDays(AdventOfCode_t *aoc)
 {
 	char *text = "\nChecking AoC days:\n";
-	AdventOfCode_print(text, strlen(text));
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, text, strlen(text));
 
 	for(int day=0; day<25; day++)
 	{
@@ -76,17 +76,17 @@ void AdventOfCode_checkImplementedDays(AdventOfCode_t *aoc)
 			sprintf(buffer, "-> Day %2d: %s\n", day + 1, "FINISHED");
 		else
 			sprintf(buffer, "-> Day %2d: %s\n", day + 1, "NOT FINISHED");
-		AdventOfCode_print(buffer, strlen(buffer));
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, buffer, strlen(buffer));
 	}
 
 	char *line = "________________________________________________________________________________\n";
-	AdventOfCode_print(line, strlen(line));
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, line, strlen(line));
 }
 
 void AdventOfCode_executeImplementations(AdventOfCode_t *aoc)
 {
 	char *text = "\nExecuting AoC days:\n";
-	AdventOfCode_print(text, strlen(text));
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, text, strlen(text));
 
 	int days_completed = 0;
 	char print_buffer[64];
@@ -98,45 +98,47 @@ void AdventOfCode_executeImplementations(AdventOfCode_t *aoc)
 		if(ret == AOC_RETURN_NOK)
 		{
 			sprintf(print_buffer, "-> Day %2d: %s\n", day + 1, "NOT IMPLEMENTED");
-			AdventOfCode_print(print_buffer, strlen(print_buffer));
+			AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, print_buffer, strlen(print_buffer));
 			continue;
 		}
 
 		// header
-		sprintf(print_buffer, "-> Day %2d: ", day + 1);
-		AdventOfCode_print(print_buffer, strlen(print_buffer));
+		sprintf(print_buffer, "-> Day %2d:\n{\n", day + 1);
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, print_buffer, strlen(print_buffer));
 
 		// exceute debug mode
 		uint32_t debug_start_time = HAL_GetTick();
-		aoc->aoc_func_list[day](AOC_CONFIG_DEBUG);
+		aoc->aoc_func_list[day](AOC_CONFIG_DEBUG_VERBOSE);
 		uint32_t debug_end_time = HAL_GetTick();
-		sprintf(print_buffer, "Debug: [ %7lu ms]", debug_end_time - debug_start_time);
-		AdventOfCode_print(print_buffer, strlen(print_buffer));
+		sprintf(print_buffer, "\n\tDebug:   [ %7lu ms]\n\n", debug_end_time - debug_start_time);
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, print_buffer, strlen(print_buffer));
 
 		// execute release mode
 		uint32_t release_start_time = HAL_GetTick();
-		aoc->aoc_func_list[day](AOC_CONFIG_RELEASE);
+		aoc->aoc_func_list[day](AOC_CONFIG_RELEASE_VERBOSE);
 		uint32_t release_end_time = HAL_GetTick();
-		sprintf(print_buffer, " Release: [ %7lu ms]\n", release_end_time - release_start_time);
-		AdventOfCode_print(print_buffer, strlen(print_buffer));
+		sprintf(print_buffer, "\n\tRelease: [ %7lu ms]\n}\n", release_end_time - release_start_time);
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, print_buffer, strlen(print_buffer));
 
 		// increment days
 		days_completed++;
 	}
 
 	char *line = "________________________________________________________________________________\n";
-	AdventOfCode_print(line, strlen(line));
+	AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, line, strlen(line));
 
 	if(days_completed == 25)
 	{
-		AdventOfCode_print("\n                              Mery Christmas\n", strlen("\n                              Mery Christmas\n"));
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, "\n                              Mery Christmas\n", strlen("\n                              Mery Christmas\n"));
 		char *line = "________________________________________________________________________________\n";
-		AdventOfCode_print(line, strlen(line));
+		AdventOfCode_print(AOC_CONFIG_DEBUG_VERBOSE, line, strlen(line));
 	}
 }
 
-void AdventOfCode_print(char *text, int len)
+void AdventOfCode_print(AdventOfCode_config_t config, char *text, int len)
 {
+	if(config == AOC_CONFIG_TEST || config == AOC_CONFIG_DEBUG || config == AOC_CONFIG_RELEASE)
+		return;
 	while(((USBD_CDC_HandleTypeDef*)hUsbDeviceHS.pClassData)->TxState != 0);
 	CDC_Transmit_HS((uint8_t*)text, len);
 }
