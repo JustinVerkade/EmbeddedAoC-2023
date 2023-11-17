@@ -37,7 +37,6 @@ struct AdventOfCode_t
 	AdventOfCode_return_t(*aoc_func_list[25])(AdventOfCode_config_t);
 };
 
-
 void AdventOfCode_init(AdventOfCode_t *aoc,
 		AdventOfCode_return_t(*aoc_day_01)(AdventOfCode_config_t),
 		AdventOfCode_return_t(*aoc_day_02)(AdventOfCode_config_t),
