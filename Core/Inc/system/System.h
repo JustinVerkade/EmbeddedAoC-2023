@@ -13,8 +13,6 @@
 #include "string.h"
 #include "main.h"
 
-#define SRAM_ADDRESS ((uint32_t*)0x60000000ul)
-
 typedef enum SystemError_t SystemError_t;
 enum SystemError_t
 {

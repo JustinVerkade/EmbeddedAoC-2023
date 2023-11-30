@@ -27,6 +27,7 @@
 "./Core/Src/AoC/Days/DayTemplace.o"
 "./Core/Src/Ffunctions/f_debug.o"
 "./Core/Src/System/System.o"
+"./Core/Src/System/malloc.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f7xx_hal_msp.o"
 "./Core/Src/stm32f7xx_it.o"

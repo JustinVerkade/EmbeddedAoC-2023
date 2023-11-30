@@ -35,6 +35,9 @@
 /* Entry Point */
 ENTRY(Reset_Handler)
 
+/* size of external SRAM */
+_sram_memory_size = 0x800000;
+
 /* Highest address of the user mode stack */
 _estack = ORIGIN(RAM) + LENGTH(RAM); /* end of "RAM" Ram type memory */
 
@@ -45,7 +48,8 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 MEMORY
 {
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 320K
-  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 1024K
+  FLASH   (rx)    : ORIGIN = 0x08000000,   LENGTH = 1024K
+  SRAM   (xrw)    : ORIGIN = 0x60000000,   LENGTH = 0x800000
 }
 
 /* Sections */
@@ -172,6 +176,15 @@ SECTIONS
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >RAM
+  
+  /* SDRAM memory block specification */
+  .ext_sram :
+  {
+    . = ALIGN(8);
+    PROVIDE ( end = . );
+    PROVIDE ( _end = . );
+    . = ALIGN(8);
+  } >SRAM
 
   /* Remove information from the compiler libraries */
   /DISCARD/ :

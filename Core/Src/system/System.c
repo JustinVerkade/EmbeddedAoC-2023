@@ -28,7 +28,7 @@ void System_init(System_t *state)
 void System_selfTest(System_t *state)
 {
 	// test psram
-	uint32_t *ptr = SRAM_ADDRESS + 1000000ul;
+	uint32_t *ptr = (void*)0x60000000 + 1000000ul;
 	for(uint32_t byte=0; byte<1000000ul; byte++)
 		*(ptr + byte) = 0xFFFF & (byte >> 4);
 	for(uint32_t byte=0; byte<1000000ul; byte++)

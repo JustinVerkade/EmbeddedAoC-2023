@@ -22,7 +22,7 @@ AdventOfCode_return_t AoC_Day_01(AdventOfCode_config_t config)
 		else ret = f_open(&file, "day1.txt", FA_READ);
 		if(ret != FR_OK)
 		{
-			AdventOfCode_print(config, "\tCannot find file!\n", strlen("\tCannot find file!\n"));
+			AdventOfCode_print(config, "    Cannot find file!\n", strlen("\tCannot find file!\n"));
 			return AOC_RETURN_NOK;
 		}
 
@@ -40,7 +40,7 @@ AdventOfCode_return_t AoC_Day_01(AdventOfCode_config_t config)
 
 		// output answer
 		char answer[32];
-		sprintf(answer, "\tPart 1 answer: %ld\n", counter);
+		sprintf(answer, "    Part 1 answer: %ld\n", counter);
 		AdventOfCode_print(config, answer, strlen(answer));
 
 		// clean up
@@ -56,7 +56,7 @@ AdventOfCode_return_t AoC_Day_01(AdventOfCode_config_t config)
 		else ret = f_open(&file, "day1.txt", FA_READ);
 		if(ret != FR_OK)
 		{
-			AdventOfCode_print(config, "\tCannot find file!\n", strlen("\tCannot find file!\n"));
+			AdventOfCode_print(config, "    Cannot find file!\n", strlen("\tCannot find file!\n"));
 			return AOC_RETURN_NOK;
 		}
 
@@ -81,7 +81,7 @@ AdventOfCode_return_t AoC_Day_01(AdventOfCode_config_t config)
 
 		// output answer
 		char answer[32];
-		sprintf(answer, "\tPart 2 answer: %ld\n", counter);
+		sprintf(answer, "    Part 2 answer: %ld\n", counter);
 		AdventOfCode_print(config, answer, strlen(answer));
 
 		// clean up

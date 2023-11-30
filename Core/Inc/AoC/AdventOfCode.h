@@ -8,6 +8,8 @@
 #ifndef SRC_AOC_ADVENTOFCODE_H_
 #define SRC_AOC_ADVENTOFCODE_H_
 
+#include "System/malloc.h"
+
 #include "fatfs.h"
 #include "stdint.h"
 #include "string.h"

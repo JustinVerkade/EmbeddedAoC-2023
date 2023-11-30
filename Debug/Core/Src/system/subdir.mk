@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/System/System.c 
+../Core/Src/System/System.c \
+../Core/Src/System/malloc.c 
 
 OBJS += \
-./Core/Src/System/System.o 
+./Core/Src/System/System.o \
+./Core/Src/System/malloc.o 
 
 C_DEPS += \
-./Core/Src/System/System.d 
+./Core/Src/System/System.d \
+./Core/Src/System/malloc.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Core/Src/System/%.o Core/Src/System/%.su Core/Src/System/%.cyclo: ../Core/Src/Sy
 clean: clean-Core-2f-Src-2f-System
 
 clean-Core-2f-Src-2f-System:
-	-$(RM) ./Core/Src/System/System.cyclo ./Core/Src/System/System.d ./Core/Src/System/System.o ./Core/Src/System/System.su
+	-$(RM) ./Core/Src/System/System.cyclo ./Core/Src/System/System.d ./Core/Src/System/System.o ./Core/Src/System/System.su ./Core/Src/System/malloc.cyclo ./Core/Src/System/malloc.d ./Core/Src/System/malloc.o ./Core/Src/System/malloc.su
 
 .PHONY: clean-Core-2f-Src-2f-System
 
