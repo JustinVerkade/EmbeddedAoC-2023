@@ -110,7 +110,7 @@ uint8_t UserTxBufferHS[APP_TX_DATA_SIZE];
 extern USBD_HandleTypeDef hUsbDeviceHS;
 
 /* USER CODE BEGIN EXPORTED_VARIABLES */
-extern uint8_t usb_rx_buffer[1024];
+extern uint8_t usb_rx_buffer[2048];
 extern uint16_t usb_rx_length;
 extern uint8_t usb_rx_ready;
 extern uint8_t usb_connected;
