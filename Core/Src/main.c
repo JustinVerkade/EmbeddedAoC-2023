@@ -79,8 +79,8 @@ System_t system_state;
 
 uint8_t usb_rx_buffer[1024];
 uint16_t usb_rx_length;
-uint8_t usb_rx_ready;
-uint8_t usb_connected;
+volatile uint8_t usb_rx_ready;
+volatile uint8_t usb_connected;
 
 AdventOfCode_t aoc;
 
@@ -880,9 +880,9 @@ static void MX_FMC_Init(void)
   hsram1.Init.WriteFifo = FMC_WRITE_FIFO_ENABLE;
   hsram1.Init.PageSize = FMC_PAGE_SIZE_NONE;
   /* Timing */
-  Timing.AddressSetupTime = 5;
+  Timing.AddressSetupTime = 8;
   Timing.AddressHoldTime = 15;
-  Timing.DataSetupTime = 8;
+  Timing.DataSetupTime = 10;
   Timing.BusTurnAroundDuration = 2;
   Timing.CLKDivision = 16;
   Timing.DataLatency = 17;

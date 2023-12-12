@@ -9,12 +9,12 @@
 #include "string.h"
 
 // SDRAM defines
-#define SRAM_MEMORY_ADDRESS 0x60000000
-#define SRAM_MEMORY_SIZE 0x800000
+#define SRAM_MEMORY_ADDRESS 0x60000000llu
+#define SRAM_MEMORY_SIZE 0x800000llu
 
 // local memory data
 static uint8_t *sram_memory = (uint8_t*)SRAM_MEMORY_ADDRESS;
-static uint32_t sram_ptr = 0x00000000;
+static uint32_t sram_ptr = 0x00000000llu;
 
 void* sram_malloc(uint32_t bytes)
 {

@@ -1,0 +1,5 @@
+main.c:425:6:USBD_HandleCommands.part.0	38
+main.c:425:6:USBD_HandleCommands	2
+main.c:1024:6:Error_Handler	5
+main.c:557:6:SystemClock_Config	3
+main.c:482:5:main	12

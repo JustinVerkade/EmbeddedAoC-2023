@@ -124,7 +124,7 @@ AdventOfCode_return_t AoC_Day_04(AdventOfCode_config_t config)
 		else ret = f_open(&file, "day4.txt", FA_READ);
 		if(ret != FR_OK)
 		{
-			AdventOfCode_print(config, "    Cannot find file!\n", strlen("\tCannot find file!\n"));
+			AdventOfCode_print(config, "    Cannot find file!\n", strlen("    Cannot find file!\n"));
 			return AOC_RETURN_NOK;
 		}
 

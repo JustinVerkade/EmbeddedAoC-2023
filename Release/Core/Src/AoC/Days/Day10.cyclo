@@ -1,0 +1,10 @@
+Day10.c:30:6:replacementChar	7
+Day10.c:47:6:getMazePosition	1
+Day10.c:53:6:setMazePosition	1
+Day10.c:59:6:printMaze	2
+Day10.c:73:6:printBigMaze	2
+Day10.c:85:6:getBigMazePosition	1
+Day10.c:91:6:setBigMazePosition	1
+Day10.c:97:13:getValidDirection	16
+Day10.c:130:13:nextDirection	13
+Day10.c:172:23:AoC_Day_10	61

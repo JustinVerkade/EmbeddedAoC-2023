@@ -1,1 +1,4 @@
-Day09.c:10:23:AoC_Day_09	2
+Day09.c:10:6:printSequence	4
+Day09.c:28:9:recursion	5
+Day09.c:57:9:reverseRecursion	5
+Day09.c:86:23:AoC_Day_09	12
