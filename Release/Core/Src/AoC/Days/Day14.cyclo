@@ -1,1 +1,7 @@
-Day14.c:10:23:AoC_Day_14	1
+Day14.c:10:6:printRocks	2
+Day14.c:22:6:rollNorth	6
+Day14.c:51:6:rollWest	6
+Day14.c:80:6:rollSouth	6
+Day14.c:109:6:rollEast	6
+Day14.c:138:10:calculateLoad	4
+Day14.c:149:23:AoC_Day_14	13
