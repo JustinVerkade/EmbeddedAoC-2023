@@ -1,1 +1,6 @@
-Day15.c:10:23:AoC_Day_15	1
+Day15.c:17:9:getHash	2
+Day15.c:28:6:pushLens	4
+Day15.c:46:9:popLens	6
+Day15.c:68:6:printBoxes	4
+Day15.c:99:10:calculateAnswer	4
+Day15.c:121:23:AoC_Day_15	13
