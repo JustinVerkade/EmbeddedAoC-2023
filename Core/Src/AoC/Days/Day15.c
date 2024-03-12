@@ -110,7 +110,7 @@ uint32_t calculateAnswer(Box_t *boxes)
 		{
 			uint32_t box = i + 1;
 			uint32_t row = j + 1;
-			uint32_t fcl = atoi(&boxes[i].lenses[j][strlen(boxes[i].lenses[j])-1]);
+			uint32_t fcl = atoi((char*)&boxes[i].lenses[j][strlen((char*)boxes[i].lenses[j])-1]);
 
 			sum += box * row * fcl;
 		}
