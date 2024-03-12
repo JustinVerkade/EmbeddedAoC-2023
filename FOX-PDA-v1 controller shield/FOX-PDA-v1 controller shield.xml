@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\J.Verkade\OneDrive\KiCad\Projects\FOX-PDA-v1 controller shield\FOX-PDA-v1 controller shield\FOX-PDA-v1 controller shield.kicad_sch</source>
+    <date>21-6-2023 20:30:07</date>
+    <tool>Eeschema (6.0.10)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>FOX-PDA-v1 controller shield.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>10u</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>582eb37d-7f31-43c0-86ea-95480ad6af42</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>10u</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3e15bd20-01f2-41a2-9784-9824028a4824</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>10u</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4361eb42-b88d-48f6-8575-51b3747b14ce</tstamps>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0a948986-2982-4856-b388-b626473ae34c</tstamps>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>269d28a7-820f-4d70-b1b2-ed7adb86f5d0</tstamps>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b4ec47fa-fa0c-4f30-88af-16f5fc47097a</tstamps>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e5fb47ea-682f-40b7-9508-58bf17193200</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>SLW-108-01-T-S</value>
+      <footprint>SamacSys_Parts:SLW-108-01-X-S</footprint>
+      <datasheet>https://componentsearchengine.com/Datasheets/1/SLW-108-01-T-S.pdf</datasheet>
+      <fields>
+        <field name="Description">8 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</field>
+        <field name="Manufacturer_Name">SAMTEC</field>
+        <field name="Manufacturer_Part_Number">SLW-108-01-T-S</field>
+        <field name="Mouser Part Number">200-SLW10801TS</field>
+        <field name="Mouser Price/Stock">https://www.mouser.com/Search/Refine.aspx?Keyword=200-SLW10801TS</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="SLW-108-01-T-S" description="8 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Description" value="8 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Height" value=""/>
+      <property name="Mouser Part Number" value="200-SLW10801TS"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.com/Search/Refine.aspx?Keyword=200-SLW10801TS"/>
+      <property name="Manufacturer_Name" value="SAMTEC"/>
+      <property name="Manufacturer_Part_Number" value="SLW-108-01-T-S"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b1dd7c0e-66b3-4faf-bc10-d5e3d1267140</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>SLW-110-01-T-S</value>
+      <footprint>SamacSys_Parts:SLW-110-01-X-S</footprint>
+      <datasheet>http://suddendocs.samtec.com/prints/slw-1xx-01-x-x-mkt.pdf</datasheet>
+      <fields>
+        <field name="Description">10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</field>
+        <field name="Height">4.57</field>
+        <field name="Manufacturer_Name">SAMTEC</field>
+        <field name="Manufacturer_Part_Number">SLW-110-01-T-S</field>
+        <field name="Mouser Part Number">200-SLW11001TS</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Samtec/SLW-110-01-T-S?qs=WqbWUrltBn0VpUHXVPrl6A%3D%3D</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="SLW-110-01-T-S" description="10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Description" value="10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Height" value="4.57"/>
+      <property name="Mouser Part Number" value="200-SLW11001TS"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.co.uk/ProductDetail/Samtec/SLW-110-01-T-S?qs=WqbWUrltBn0VpUHXVPrl6A%3D%3D"/>
+      <property name="Manufacturer_Name" value="SAMTEC"/>
+      <property name="Manufacturer_Part_Number" value="SLW-110-01-T-S"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c649d837-3985-47a0-bc09-f7434aa65e84</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>SLW-110-01-T-S</value>
+      <footprint>SamacSys_Parts:SLW-110-01-X-S</footprint>
+      <datasheet>http://suddendocs.samtec.com/prints/slw-1xx-01-x-x-mkt.pdf</datasheet>
+      <fields>
+        <field name="Description">10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</field>
+        <field name="Height">4.57</field>
+        <field name="Manufacturer_Name">SAMTEC</field>
+        <field name="Manufacturer_Part_Number">SLW-110-01-T-S</field>
+        <field name="Mouser Part Number">200-SLW11001TS</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Samtec/SLW-110-01-T-S?qs=WqbWUrltBn0VpUHXVPrl6A%3D%3D</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="SLW-110-01-T-S" description="10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Description" value="10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Height" value="4.57"/>
+      <property name="Mouser Part Number" value="200-SLW11001TS"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.co.uk/ProductDetail/Samtec/SLW-110-01-T-S?qs=WqbWUrltBn0VpUHXVPrl6A%3D%3D"/>
+      <property name="Manufacturer_Name" value="SAMTEC"/>
+      <property name="Manufacturer_Part_Number" value="SLW-110-01-T-S"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6c9dee62-e303-4349-931d-3bc6e2c37c1a</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>SLW-106-01-T-S</value>
+      <footprint>SamacSys_Parts:SLW-106-01-X-S</footprint>
+      <datasheet>http://suddendocs.samtec.com/prints/slw-1xx-01-x-x-mkt.pdf</datasheet>
+      <fields>
+        <field name="Description">6 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</field>
+        <field name="Manufacturer_Name">SAMTEC</field>
+        <field name="Manufacturer_Part_Number">SLW-106-01-T-S</field>
+        <field name="Mouser Part Number">200-SLW10601TS</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Samtec/SLW-106-01-T-S?qs=92ilVni64gwgeQzrY9annQ%3D%3D</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="SLW-106-01-T-S" description="6 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Description" value="6 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row"/>
+      <property name="Height" value=""/>
+      <property name="Mouser Part Number" value="200-SLW10601TS"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.co.uk/ProductDetail/Samtec/SLW-106-01-T-S?qs=92ilVni64gwgeQzrY9annQ%3D%3D"/>
+      <property name="Manufacturer_Name" value="SAMTEC"/>
+      <property name="Manufacturer_Part_Number" value="SLW-106-01-T-S"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b00e2c05-ef6b-41b5-bc08-5e11332f2f96</tstamps>
+    </comp>
+    <comp ref="LED1">
+      <value>150060AS75000</value>
+      <footprint>SamacSys_Parts:LEDC1608X80N</footprint>
+      <datasheet>https://componentsearchengine.com/Datasheets/2/150060AS75000.pdf</datasheet>
+      <fields>
+        <field name="Description">2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000</field>
+        <field name="Height">0.8</field>
+        <field name="Manufacturer_Name">Wurth Elektronik</field>
+        <field name="Manufacturer_Part_Number">150060AS75000</field>
+        <field name="Mouser Part Number">710-150060AS75000</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/150060AS75000?qs=d0WKAl%252BL4KbvMBYryeof0Q%3D%3D</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="150060AS75000" description="2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000"/>
+      <property name="Description" value="2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000"/>
+      <property name="Height" value="0.8"/>
+      <property name="Mouser Part Number" value="710-150060AS75000"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/150060AS75000?qs=d0WKAl%252BL4KbvMBYryeof0Q%3D%3D"/>
+      <property name="Manufacturer_Name" value="Wurth Elektronik"/>
+      <property name="Manufacturer_Part_Number" value="150060AS75000"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a4bbb36f-1f5b-4384-b341-569480f13d84</tstamps>
+    </comp>
+    <comp ref="LED2">
+      <value>150060AS75000</value>
+      <footprint>SamacSys_Parts:LEDC1608X80N</footprint>
+      <datasheet>https://componentsearchengine.com/Datasheets/2/150060AS75000.pdf</datasheet>
+      <fields>
+        <field name="Description">2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000</field>
+        <field name="Height">0.8</field>
+        <field name="Manufacturer_Name">Wurth Elektronik</field>
+        <field name="Manufacturer_Part_Number">150060AS75000</field>
+        <field name="Mouser Part Number">710-150060AS75000</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/150060AS75000?qs=d0WKAl%252BL4KbvMBYryeof0Q%3D%3D</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="150060AS75000" description="2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000"/>
+      <property name="Description" value="2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000"/>
+      <property name="Height" value="0.8"/>
+      <property name="Mouser Part Number" value="710-150060AS75000"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/150060AS75000?qs=d0WKAl%252BL4KbvMBYryeof0Q%3D%3D"/>
+      <property name="Manufacturer_Name" value="Wurth Elektronik"/>
+      <property name="Manufacturer_Part_Number" value="150060AS75000"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>068747af-7d70-4df8-9c89-af884a90d964</tstamps>
+    </comp>
+    <comp ref="LED3">
+      <value>150060AS75000</value>
+      <footprint>SamacSys_Parts:LEDC1608X80N</footprint>
+      <datasheet>https://componentsearchengine.com/Datasheets/2/150060AS75000.pdf</datasheet>
+      <fields>
+        <field name="Description">2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000</field>
+        <field name="Height">0.8</field>
+        <field name="Manufacturer_Name">Wurth Elektronik</field>
+        <field name="Manufacturer_Part_Number">150060AS75000</field>
+        <field name="Mouser Part Number">710-150060AS75000</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/150060AS75000?qs=d0WKAl%252BL4KbvMBYryeof0Q%3D%3D</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="150060AS75000" description="2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000"/>
+      <property name="Description" value="2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000"/>
+      <property name="Height" value="0.8"/>
+      <property name="Mouser Part Number" value="710-150060AS75000"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/150060AS75000?qs=d0WKAl%252BL4KbvMBYryeof0Q%3D%3D"/>
+      <property name="Manufacturer_Name" value="Wurth Elektronik"/>
+      <property name="Manufacturer_Part_Number" value="150060AS75000"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8bc6b659-c985-4878-a103-30cfad533be6</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>5k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f7ee7f40-b2a5-4907-bf1e-590ed6d97b01</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>5k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93c38464-3e0e-48bf-ab18-d47c41b45c6c</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>5k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c225cc37-4f7b-4c6f-b5fa-b465f7832c93</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>5k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0952bb2a-a1c9-4727-9a2f-00d156b9e8e4</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>5k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>255e7355-a169-431e-8477-d2d33ec76572</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>5k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>71c10e3a-7e60-4561-8b5e-bc2782afe27d</tstamps>
+    </comp>
+    <comp ref="S1">
+      <value>THB001P</value>
+      <footprint>SamacSys_Parts:THB001P</footprint>
+      <datasheet>https://www.ckswitches.com/media/2873/thb.pdf</datasheet>
+      <fields>
+        <field name="Description">THUMBSTICK, 0.05A, 12VDC, 2 AXIS, PCB; No. of Axes:2; Track Resistance:10kohm; Supply Voltage Max:-; No. of Switch Positions:-; Contact Current AC Max:-; Contact Voltage AC Max:50V; Rotation Electrical Angle:36</field>
+        <field name="Height">19.85</field>
+        <field name="Manufacturer_Name">C &amp; K COMPONENTS</field>
+        <field name="Manufacturer_Part_Number">THB001P</field>
+        <field name="Mouser Part Number">611-THB001P</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/CK/THB001P?qs=OlC7AqGiEDlMaVQ%2FEBrivA%3D%3D</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="THB001P" description="THUMBSTICK, 0.05A, 12VDC, 2 AXIS, PCB; No. of Axes:2; Track Resistance:10kohm; Supply Voltage Max:-; No. of Switch Positions:-; Contact Current AC Max:-; Contact Voltage AC Max:50V; Rotation Electrical Angle:36"/>
+      <property name="Description" value="THUMBSTICK, 0.05A, 12VDC, 2 AXIS, PCB; No. of Axes:2; Track Resistance:10kohm; Supply Voltage Max:-; No. of Switch Positions:-; Contact Current AC Max:-; Contact Voltage AC Max:50V; Rotation Electrical Angle:36"/>
+      <property name="Height" value="19.85"/>
+      <property name="Mouser Part Number" value="611-THB001P"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.co.uk/ProductDetail/CK/THB001P?qs=OlC7AqGiEDlMaVQ%2FEBrivA%3D%3D"/>
+      <property name="Manufacturer_Name" value="C &amp; K COMPONENTS"/>
+      <property name="Manufacturer_Part_Number" value="THB001P"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="FOX-PDA-v1 controller shield.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a6578a88-9698-4fad-9aa0-57744be9e4e3</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_Small">
+      <description>Resistor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_Small</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole_Pad">
+      <description>Mounting Hole with connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*Pad*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_Pad</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="SamacSys_Parts" part="150060AS75000">
+      <description>2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000</description>
+      <docs>https://componentsearchengine.com/Datasheets/2/150060AS75000.pdf</docs>
+      <fields>
+        <field name="Reference">LED</field>
+        <field name="Value">150060AS75000</field>
+        <field name="Footprint">LEDC1608X80N</field>
+        <field name="Datasheet">https://componentsearchengine.com/Datasheets/2/150060AS75000.pdf</field>
+        <field name="Description">2.4 V Amber LED 1608 (0603)  SMD, Wurth Elektronik WL-SMCW 150060AS75000</field>
+        <field name="Height">0.8</field>
+        <field name="Mouser Part Number">710-150060AS75000</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/150060AS75000?qs=d0WKAl%252BL4KbvMBYryeof0Q%3D%3D</field>
+        <field name="Manufacturer_Name">Wurth Elektronik</field>
+        <field name="Manufacturer_Part_Number">150060AS75000</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="SamacSys_Parts" part="SLW-106-01-T-S">
+      <description>6 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</description>
+      <docs>http://suddendocs.samtec.com/prints/slw-1xx-01-x-x-mkt.pdf</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">SLW-106-01-T-S</field>
+        <field name="Footprint">SLW-106-01-X-S</field>
+        <field name="Datasheet">http://suddendocs.samtec.com/prints/slw-1xx-01-x-x-mkt.pdf</field>
+        <field name="Description">6 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</field>
+        <field name="Mouser Part Number">200-SLW10601TS</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Samtec/SLW-106-01-T-S?qs=92ilVni64gwgeQzrY9annQ%3D%3D</field>
+        <field name="Manufacturer_Name">SAMTEC</field>
+        <field name="Manufacturer_Part_Number">SLW-106-01-T-S</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="SamacSys_Parts" part="SLW-108-01-T-S">
+      <description>8 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</description>
+      <docs>https://componentsearchengine.com/Datasheets/1/SLW-108-01-T-S.pdf</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">SLW-108-01-T-S</field>
+        <field name="Footprint">SLW-108-01-X-S</field>
+        <field name="Datasheet">https://componentsearchengine.com/Datasheets/1/SLW-108-01-T-S.pdf</field>
+        <field name="Description">8 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</field>
+        <field name="Mouser Part Number">200-SLW10801TS</field>
+        <field name="Mouser Price/Stock">https://www.mouser.com/Search/Refine.aspx?Keyword=200-SLW10801TS</field>
+        <field name="Manufacturer_Name">SAMTEC</field>
+        <field name="Manufacturer_Part_Number">SLW-108-01-T-S</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+        <pin num="7" name="7" type="passive"/>
+        <pin num="8" name="8" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="SamacSys_Parts" part="SLW-110-01-T-S">
+      <description>10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</description>
+      <docs>http://suddendocs.samtec.com/prints/slw-1xx-01-x-x-mkt.pdf</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">SLW-110-01-T-S</field>
+        <field name="Footprint">SLW-110-01-X-S</field>
+        <field name="Datasheet">http://suddendocs.samtec.com/prints/slw-1xx-01-x-x-mkt.pdf</field>
+        <field name="Description">10 Position, .100&amp;quot; Tiger Buy&amp;trade; Low Profile Socket Strip, Single-Row</field>
+        <field name="Height">4.57</field>
+        <field name="Mouser Part Number">200-SLW11001TS</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Samtec/SLW-110-01-T-S?qs=WqbWUrltBn0VpUHXVPrl6A%3D%3D</field>
+        <field name="Manufacturer_Name">SAMTEC</field>
+        <field name="Manufacturer_Part_Number">SLW-110-01-T-S</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+        <pin num="7" name="7" type="passive"/>
+        <pin num="8" name="8" type="passive"/>
+        <pin num="9" name="9" type="passive"/>
+        <pin num="10" name="10" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="SamacSys_Parts" part="THB001P">
+      <description>THUMBSTICK, 0.05A, 12VDC, 2 AXIS, PCB; No. of Axes:2; Track Resistance:10kohm; Supply Voltage Max:-; No. of Switch Positions:-; Contact Current AC Max:-; Contact Voltage AC Max:50V; Rotation Electrical Angle:36</description>
+      <docs>https://www.ckswitches.com/media/2873/thb.pdf</docs>
+      <fields>
+        <field name="Reference">S</field>
+        <field name="Value">THB001P</field>
+        <field name="Footprint">THB001P</field>
+        <field name="Datasheet">https://www.ckswitches.com/media/2873/thb.pdf</field>
+        <field name="Description">THUMBSTICK, 0.05A, 12VDC, 2 AXIS, PCB; No. of Axes:2; Track Resistance:10kohm; Supply Voltage Max:-; No. of Switch Positions:-; Contact Current AC Max:-; Contact Voltage AC Max:50V; Rotation Electrical Angle:36</field>
+        <field name="Height">19.85</field>
+        <field name="Mouser Part Number">611-THB001P</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/CK/THB001P?qs=OlC7AqGiEDlMaVQ%2FEBrivA%3D%3D</field>
+        <field name="Manufacturer_Name">C &amp; K COMPONENTS</field>
+        <field name="Manufacturer_Part_Number">THB001P</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="11" name="1'" type="passive"/>
+        <pin num="12" name="2'" type="passive"/>
+        <pin num="13" name="3'" type="passive"/>
+        <pin num="A1" name="COM_1" type="passive"/>
+        <pin num="B1" name="COM_2" type="passive"/>
+        <pin num="C1" name="NO_1" type="passive"/>
+        <pin num="D1" name="NO_2" type="passive"/>
+        <pin num="MH1" name="MH1" type="passive"/>
+        <pin num="MH2" name="MH2" type="passive"/>
+        <pin num="MH3" name="MH3" type="passive"/>
+        <pin num="MH4" name="MH4" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Device.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="SamacSys_Parts">
+      <uri>C:/Users/J.Verkade/OneDrive/KiCad/Lib/SamacSys_Parts.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="JOYSTICK_BUTTON">
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="S1" pin="C1" pinfunction="NO_1" pintype="passive"/>
+      <node ref="S1" pin="D1" pinfunction="NO_2" pintype="passive"/>
+    </net>
+    <net code="2" name="JOYSTICK_X">
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="S1" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="3" name="JOYSTICK_Y">
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="S1" pin="12" pinfunction="2'" pintype="passive"/>
+    </net>
+    <net code="4" name="Net-(LED1-Pad2)">
+      <node ref="LED1" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="5" name="Net-(LED2-Pad2)">
+      <node ref="LED2" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+    </net>
+    <net code="6" name="Net-(LED3-Pad2)">
+      <node ref="LED3" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+    </net>
+    <net code="7" name="PA0">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="J3" pin="8" pinfunction="8" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+    </net>
+    <net code="8" name="PA2">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="J3" pin="10" pinfunction="10" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+    </net>
+    <net code="9" name="PA3">
+      <node ref="J3" pin="9" pinfunction="9" pintype="passive"/>
+    </net>
+    <net code="10" name="PA5">
+      <node ref="J3" pin="4" pinfunction="4" pintype="passive"/>
+    </net>
+    <net code="11" name="PA6">
+      <node ref="J3" pin="6" pinfunction="6" pintype="passive"/>
+    </net>
+    <net code="12" name="PA7">
+      <node ref="J3" pin="7" pinfunction="7" pintype="passive"/>
+    </net>
+    <net code="13" name="PA9">
+      <node ref="J4" pin="4" pinfunction="4" pintype="passive"/>
+    </net>
+    <net code="14" name="PA10">
+      <node ref="J4" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="15" name="PB0">
+      <node ref="J3" pin="3" pinfunction="3" pintype="passive"/>
+    </net>
+    <net code="16" name="PB1">
+      <node ref="J3" pin="5" pinfunction="5" pintype="passive"/>
+    </net>
+    <net code="17" name="PB4">
+      <node ref="J2" pin="7" pinfunction="7" pintype="passive"/>
+    </net>
+    <net code="18" name="PB5">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+    </net>
+    <net code="19" name="PB10">
+      <node ref="J1" pin="8" pinfunction="8" pintype="passive"/>
+    </net>
+    <net code="20" name="PB11">
+      <node ref="J1" pin="6" pinfunction="6" pintype="passive"/>
+    </net>
+    <net code="21" name="PB12">
+      <node ref="J1" pin="7" pinfunction="7" pintype="passive"/>
+    </net>
+    <net code="22" name="PB13">
+      <node ref="J1" pin="5" pinfunction="5" pintype="passive"/>
+    </net>
+    <net code="23" name="PC5">
+      <node ref="J3" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="24" name="PC7">
+      <node ref="J4" pin="5" pinfunction="5" pintype="passive"/>
+    </net>
+    <net code="25" name="PD6">
+      <node ref="J2" pin="9" pinfunction="9" pintype="passive"/>
+    </net>
+    <net code="26" name="PF11">
+      <node ref="J3" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="27" name="PG8">
+      <node ref="J4" pin="6" pinfunction="6" pintype="passive"/>
+    </net>
+    <net code="28" name="PG10">
+      <node ref="J2" pin="8" pinfunction="8" pintype="passive"/>
+    </net>
+    <net code="29" name="PG11">
+      <node ref="J2" pin="6" pinfunction="6" pintype="passive"/>
+    </net>
+    <net code="30" name="PG12">
+      <node ref="J2" pin="4" pinfunction="4" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+    </net>
+    <net code="31" name="PG13">
+      <node ref="J2" pin="5" pinfunction="5" pintype="passive"/>
+    </net>
+    <net code="32" name="PG14">
+      <node ref="J2" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+    </net>
+    <net code="33" name="PG15">
+      <node ref="J2" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+    </net>
+    <net code="34" name="PI0">
+      <node ref="J4" pin="3" pinfunction="3" pintype="passive"/>
+    </net>
+    <net code="35" name="PI1">
+      <node ref="J4" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="36" name="PI3">
+      <node ref="J2" pin="10" pinfunction="10" pintype="passive"/>
+    </net>
+    <net code="37" name="VDD">
+      <node ref="J1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="S1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="S1" pin="11" pinfunction="1'" pintype="passive"/>
+    </net>
+    <net code="38" name="VSS">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="J1" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="J1" pin="4" pinfunction="4" pintype="passive"/>
+      <node ref="LED1" pin="1" pintype="passive"/>
+      <node ref="LED2" pin="1" pintype="passive"/>
+      <node ref="LED3" pin="1" pintype="passive"/>
+      <node ref="S1" pin="13" pinfunction="3'" pintype="passive"/>
+      <node ref="S1" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="S1" pin="A1" pinfunction="COM_1" pintype="passive"/>
+      <node ref="S1" pin="B1" pinfunction="COM_2" pintype="passive"/>
+      <node ref="S1" pin="MH1" pinfunction="MH1" pintype="passive"/>
+      <node ref="S1" pin="MH2" pinfunction="MH2" pintype="passive"/>
+      <node ref="S1" pin="MH3" pinfunction="MH3" pintype="passive"/>
+      <node ref="S1" pin="MH4" pinfunction="MH4" pintype="passive"/>
+    </net>
+    <net code="39" name="unconnected-(H1-Pad1)">
+      <node ref="H1" pin="1" pinfunction="1" pintype="input"/>
+    </net>
+    <net code="40" name="unconnected-(H2-Pad1)">
+      <node ref="H2" pin="1" pinfunction="1" pintype="input"/>
+    </net>
+    <net code="41" name="unconnected-(H3-Pad1)">
+      <node ref="H3" pin="1" pinfunction="1" pintype="input"/>
+    </net>
+    <net code="42" name="unconnected-(H4-Pad1)">
+      <node ref="H4" pin="1" pinfunction="1" pintype="input"/>
+    </net>
+  </nets>
+</export>
