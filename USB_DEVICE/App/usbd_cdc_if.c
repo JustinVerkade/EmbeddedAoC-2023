@@ -186,7 +186,7 @@ static int8_t CDC_DeInit_HS(void)
 static int8_t CDC_Control_HS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
 {
   /* USER CODE BEGIN 10 */
-	USBD_SetupReqTypedef *req = (USBD_SetupReqTypedef*)pbuf;
+	uint8_t tempbuf[7] = {0,0,0,0,0,0,0};
 	switch(cmd)
 	{
 	case CDC_SEND_ENCAPSULATED_COMMAND:
@@ -227,11 +227,25 @@ static int8_t CDC_Control_HS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
 		/* 6      | bDataBits  |   1   | Number Data bits (5, 6, 7, 8 or 16).          */
 		/*******************************************************************************/
 	case CDC_SET_LINE_CODING:
-
+		// required for VCP
+		tempbuf[0] = pbuf[0];
+		tempbuf[1] = pbuf[1];
+		tempbuf[2] = pbuf[2];
+		tempbuf[3] = pbuf[3];
+		tempbuf[4] = pbuf[4];
+		tempbuf[5] = pbuf[5];
+		tempbuf[6] = pbuf[6];
 		break;
 
 	case CDC_GET_LINE_CODING:
-
+		// required for VCP
+		pbuf[0] = tempbuf[0];
+		pbuf[1] = tempbuf[1];
+		pbuf[2] = tempbuf[2];
+		pbuf[3] = tempbuf[3];
+		pbuf[4] = tempbuf[4];
+		pbuf[5] = tempbuf[5];
+		pbuf[6] = tempbuf[6];
 		break;
 
 	case CDC_SET_CONTROL_LINE_STATE:

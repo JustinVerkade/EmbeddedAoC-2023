@@ -1,1 +1,12 @@
-Day16.c:10:23:AoC_Day_16	2
+Day16.c:36:6:printMap	2
+Day16.c:49:6:printQueue	2
+Day16.c:60:9:queuePush	2
+Day16.c:78:6:queuePop	1
+Day16.c:85:9:laserStep	9
+Day16.c:115:16:updateUp	8
+Day16.c:138:16:updateDown	8
+Day16.c:161:16:updateLeft	8
+Day16.c:184:16:updateRight	8
+Day16.c:207:9:laserUpdate	5
+Day16.c:220:9:pushEdge	5
+Day16.c:257:23:AoC_Day_16	31
